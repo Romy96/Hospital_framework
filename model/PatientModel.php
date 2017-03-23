@@ -2,7 +2,17 @@
 
 function getPatient($id) 
 {
+	$db = openDatabaseConnection();
 
+	$sql = "SELECT * FROM patient WHERE id=:id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id
+		));
+
+	$db = null;
+
+	return $query->fetchAll();
 }
 
 function getAllPatients() 

@@ -27,11 +27,10 @@ function createSave()
 
 function edit()
 {
-	//$student = getStudent();
 
-	// getStudent(1);
-
-	render("student/edit");	
+	render("patients/edit", array(
+			'patient' => getPatient($id)
+		));	
 }
 
 function editSave()

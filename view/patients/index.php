@@ -1,12 +1,12 @@
 <div class="container">
 	<h1>Patiënts</h1>
-	<p class="options"><a href="../Hospital_framework/patients/create.php">create</a></p>
+	<p class="options"><a href="/Hospital_framework/patients/create">create</a></p>
 	<table>
 		<thead>
 			<tr>
-				<th><a href="index.php">Name pet</a></th>
-				<th><a href="index.php">Name client</a></th>
-				<th><a href="index.php">Species</a></th>
+				<th><a href="/Hospital_framework/patients/index">Name pet</a></th>
+				<th><a href="/Hospital_framework/patients/index">Name client</a></th>
+				<th><a href="/Hospital_framework/patients/index">Species</a></th>
 				<th>Gender pet</th>
 				<th>Status</th>
 				<th></th>
@@ -23,8 +23,8 @@
 				<td><?=$patient['species']?></td>
 				<td><?=$patient['gender']?></td>
 				<td><?=$patient['status']?></td>
-				<td class="center"><a href="edit.php?id=<?=$patient['id']?>">edit</a></td>
-				<td class="center"><a href="delete.php?id=<?=$patient['id']?>">delete</a></td>
+				<td class="center"><a href="/Hospital_framework/patients/edit?id=$patient">edit</a></td>
+				<td class="center"><a href="/Hospital_framework/patients/delete">delete</a></td>
 			</tr>
 
 <?php
