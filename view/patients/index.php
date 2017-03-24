@@ -23,7 +23,7 @@
 				<td><?=$patient['species']?></td>
 				<td><?=$patient['gender']?></td>
 				<td><?=$patient['status']?></td>
-				<td class="center"><a href="/Hospital_framework/patients/edit?id=$patient">edit</a></td>
+				<td class="center"><a href="/Hospital_framework/patients/edit?id=<?=$patient['id']?>">edit</a></td>
 				<td class="center"><a href="/Hospital_framework/patients/delete">delete</a></td>
 			</tr>
 

@@ -2,7 +2,7 @@
 	<h1>New patiënt</h1>
 	
 	<div class="container">
-		<form method="post">
+		<form method="post" action="<?= URL ?>patients/createSave">
 			<div>
 				<label for="name_pet">Name pet:</label>
 				<input type="text" id="name_pet" name="name_pet">
@@ -25,10 +25,10 @@
 					$result = $db->query($sql);
 
 					if ($result->num_rows > 0) {
-						echo "<select>";
+						echo "<select name='species'>";
 					     // output data of each row
 					     while($row = $result->fetch_assoc()) {
-					         echo "<option name='species' id='species'>" . $row["species"]. "</option>";
+					         echo "<option name='species' id='species' value='". $row["species"] ."'>". $row["species"]. "</option>";
 					     }
 					     echo "</select>";
 					} else {

@@ -1,6 +1,6 @@
 <h1>Edit patiënt</h1>
 	<div class="container">
-		<form method="post">
+		<form method="post" action="<?= URL ?>patients/editSave">
 			<div>
 				<input type="hidden" name="id" value="<?=$patient['id']?>">
 				<label for="name_pet">Name pet:</label>

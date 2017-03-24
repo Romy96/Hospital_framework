@@ -12,7 +12,7 @@ function getPatient($id)
 
 	$db = null;
 
-	return $query->fetchAll();
+	return $query->fetchAll(PDO::FETCH_COLUMN);
 }
 
 function getAllPatients() 
@@ -29,8 +29,22 @@ function getAllPatients()
 
 }
 
-function editPatient() 
+function editPatient($id, $name_pet, $name_client, $gender, $species, $status) 
 {
+	$db = openDatabaseConnection();
+
+	$sql = "UPDATE patient SET name_pet=:name_pet, name_client=:name_client, gender=:gender, species=:species, status=:status WHERE id=:id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':name_pet' => $name_pet,
+		':name_client' => $name_client,
+		':gender' => $gender,
+		':species' => $species,
+		':status' => $status,
+		':id' => $id
+		));
+
+	$db = null;
 
 }
 
@@ -47,8 +61,10 @@ function deletePatient($id)
 	$db = null;
 }
 
-function createStudent($name_pet, $name_client, $gender, $species, $status) 
+function createPatient($name_pet, $name_client, $gender, $species, $status) 
 {
+	//die("PatientModel.createPatient()");
+
 	$db = openDatabaseConnection();
 
 	$sql = "INSERT INTO patient(name_pet, name_client, gender, species, status) VALUES (:name_pet, :name_client, :gender, :species, :status)";
