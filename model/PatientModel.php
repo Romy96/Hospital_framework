@@ -12,7 +12,7 @@ function getPatient($id)
 
 	$db = null;
 
-	return $query->fetchAll(PDO::FETCH_COLUMN);
+	return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 function getAllPatients() 
@@ -63,8 +63,6 @@ function deletePatient($id)
 
 function createPatient($name_pet, $name_client, $gender, $species, $status) 
 {
-	//die("PatientModel.createPatient()");
-
 	$db = openDatabaseConnection();
 
 	$sql = "INSERT INTO patient(name_pet, name_client, gender, species, status) VALUES (:name_pet, :name_client, :gender, :species, :status)";

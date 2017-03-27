@@ -12,6 +12,5 @@
 
 <link rel="stylesheet" href="<?= URL ?>css/main.css">
 <!-- Latest compiled and minified JavaScript -->
-<script src="<?=  URL ?>js/bootstrap.min.js"></script>
 </head>
 <body>

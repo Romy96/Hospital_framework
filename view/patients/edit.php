@@ -1,5 +1,8 @@
 <h1>Edit patiënt</h1>
 	<div class="container">
+	<?php
+	if(isset($patient)):
+	?>
 		<form method="post" action="<?= URL ?>patients/editSave">
 			<div>
 				<input type="hidden" name="id" value="<?=$patient['id']?>">
@@ -27,7 +30,7 @@
 						echo "<select>";
 					     // output data of each row
 					     while($row = $result->fetch_assoc()) {
-					         echo "<option name='species' id='species'>" . $row["species"]. "</option>";
+					         echo "<option name='species' id='species' value='". $row["species"] ."'>". $row["species"]. "</option>";
 					     }
 					     echo "</select>";
 					} else {
@@ -51,4 +54,7 @@
 				<input type="submit" value="Save">
 			</div>
 		</form>
+		<?php
+		endif;
+		?>
 	</div>

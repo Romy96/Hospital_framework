@@ -30,9 +30,19 @@ function createSave()
 
 function edit($id = '')
 {
-	render("patients/edit", array(
-		'patient' => getPatient($id)
-	));
+	$patient = getPatient($id);
+
+	if (isset($id)) {
+		render("patients/edit", array(
+			$patient
+		));
+	}
+	else 
+	{
+		render("patients/index", array(
+			'patients' => getAllPatients()
+		));
+	}
 }
 
 function editSave($id)
@@ -47,7 +57,7 @@ function editSave($id)
 function delete($id)
 {
 	if (isset($id)) {
-		deleteStudent($id);
+		deletePatient($id);
 	}
 
 	header("Location:" . URL . "patients/index");
