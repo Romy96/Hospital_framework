@@ -6,9 +6,8 @@ function getPatient($id)
 
 	$sql = "SELECT * FROM patient WHERE id=:id";
 	$query = $db->prepare($sql);
-	$query->execute(array(
-		':id' => $id
-		));
+	$query->bindParam(':id', $id, PDO::PARAM_STR);
+	$query->execute();
 
 	$db = null;
 

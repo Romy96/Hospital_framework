@@ -32,7 +32,11 @@ function edit($id = '')
 {
 	$patient = getPatient($id);
 
-	if (isset($id)) {
+	if(empty($patient)) {
+		echo ('Geen resultaat');
+	}
+
+	elseif (isset($id)) {
 		render("patients/edit", array(
 			$patient
 		));
