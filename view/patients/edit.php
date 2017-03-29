@@ -16,29 +16,12 @@
 			<div>
 				<label for="species">Species:</label>
 				<?php
-					// Create connection
-					$db = new mysqli('localhost','root','','hospital');
-					// Check connection
-					if ($db->connect_error) {
-					     die("Connection failed: " . $db->connect_error);
-					} 
-
-					$sql = "SELECT * FROM species";
-					$result = $db->query($sql);
-
-					if ($result->num_rows > 0) {
-						echo "<select>";
-					     // output data of each row
-					     while($row = $result->fetch_assoc()) {
-					         echo "<option name='species' id='species' value='". $row["species"] ."'>". $row["species"]. "</option>";
-					     }
-					     echo "</select>";
-					} else {
-					     echo "0 results";
-					}
-
-					$db->close();
-				?>  
+				if(isset($species)):
+				?>
+				<select name="species"><option name="species" id="species" value="<?=$species['species']?>"><?=$species['species']?></option></select> 
+				<?php
+				endif;
+				?>
 			</div>
 			<div>
 				<label for="gender">Geslacht huisdier:</label>
@@ -46,7 +29,7 @@
 	  			<input type="radio" name="gender" id="gender" value="vrouw"> Female<br>
 			</div>
 			<div>
-				<label for="name">Species:</label>
+				<label for="name">Status:</label>
 				<textarea id="status" name="status"><?=$patient['status']?></textarea>
 			</div>
 			<div>

@@ -1,6 +1,5 @@
 
 	<h1>New patiënt</h1>
-	
 	<div class="container">
 		<form method="post" action="<?= URL ?>patients/createSave">
 			<div>
@@ -13,30 +12,15 @@
 			</div>
 			<div>
 				<label for="species">Species:</label>
+				<select name="species">
 				<?php
-					// Create connection
-					$db = new mysqli('localhost','root','','hospital');
-					// Check connection
-					if ($db->connect_error) {
-					     die("Connection failed: " . $db->connect_error);
-					} 
-
-					$sql = "SELECT * FROM species";
-					$result = $db->query($sql);
-
-					if ($result->num_rows > 0) {
-						echo "<select name='species'>";
-					     // output data of each row
-					     while($row = $result->fetch_assoc()) {
-					         echo "<option name='species' id='species' value='". $row["species"] ."'>". $row["species"]. "</option>";
-					     }
-					     echo "</select>";
-					} else {
-					     echo "0 results";
-					}
-
-					$db->close();
-				?>  
+				foreach ($species as $row):
+				?>
+				<option name="species" id="species" value="<?=$row['species']?>"><?=$row['species']?></option> 
+				<?php
+				endforeach;
+				?>
+				</select>
 			</div>
 			<div>
 				<label for="gender">Geslacht huisdier:</label>

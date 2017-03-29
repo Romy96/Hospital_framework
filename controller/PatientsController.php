@@ -11,8 +11,16 @@ function index()
 
 function create()
 {
+	$species = getSpeciesforPatient();
+
+	if(empty($species)) {
+		echo ('Geen resultaat');
+	}
+
 	//formulier tonen
-	render("patients/create");
+	render("patients/create", array(
+		'species' => $species
+	));
 }
 
 function createSave()
@@ -32,13 +40,20 @@ function edit($id)
 {
 	$patient = getPatient($id);
 
+	$species = getSpeciesforPatient();
+
 	if(empty($patient)) {
+		echo ('Geen resultaat');
+	}
+
+	if(empty($species)) {
 		echo ('Geen resultaat');
 	}
 
 	if (isset($id)) {
 		render("patients/edit", array(
-			'patient' => $patient
+			'patient' => $patient,
+			'species' => $species
 		));
 	}
 	else 
@@ -51,14 +66,21 @@ function edit($id)
 
 function editSave($id)
 {
+
 	if (isset($_POST['name_pet']) && isset($_POST['name_client']) && isset($_POST['gender']) && isset($_POST['species']) && isset($_POST['status'])) {
+		//die('stop');
 		editPatient($id, $_POST['name_pet'], $_POST['name_client'], $_POST['gender'], $_POST['species'], $_POST['status']);
+		header("Location:" . URL . "patients/index");
+		exit();
 	}
 	else {
 		echo 'Geen resultaat';
+		$patient = getPatient($id);
+		render("patients/edit", array(
+			'patient' => $patient
+		));
+		exit();
 	}
-
-	header("Location:" . URL . "patients/index");
 } 
 
 function delete($id)
