@@ -15,13 +15,15 @@
 			</div>
 			<div>
 				<label for="species">Species:</label>
+				<select name="species">
 				<?php
-				if(isset($species)):
+				foreach ($species as $row):
 				?>
-				<select name="species"><option name="species" id="species" value="<?=$species['species']?>"><?=$species['species']?></option></select> 
+				<option name="species" id="species" value="<?=$row['species']?>"><?=$row['species']?></option> 
 				<?php
-				endif;
+				endforeach;
 				?>
+				</select>
 			</div>
 			<div>
 				<label for="gender">Geslacht huisdier:</label>
