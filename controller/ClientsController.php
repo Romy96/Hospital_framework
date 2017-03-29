@@ -83,7 +83,7 @@ function delete($id)
 	else 
 	{
 		render("clients/index", array(
-			'clients' => getAllPatients()
+			'clients' => getAllClients()
 		));
 	}
 }

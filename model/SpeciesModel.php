@@ -1,10 +1,10 @@
 <?php
 
-function getClient($id) 
+function getSpecies($id) 
 {
 	$db = openDatabaseConnection();
 
-	$sql = "SELECT * FROM client WHERE id=:id";
+	$sql = "SELECT * FROM species WHERE id=:id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id
@@ -16,12 +16,11 @@ function getClient($id)
 	return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-
-function getAllClients() 
+function getAllSpecies() 
 {
 	$db = openDatabaseConnection();
 
-	$sql = "SELECT * FROM client";
+	$sql = "SELECT * FROM species";
 	$query = $db->prepare($sql);
 	$query->execute();
 
@@ -31,14 +30,14 @@ function getAllClients()
 
 }
 
-function editClient($id, $name) 
+function editSpecies($id, $species) 
 {
 	$db = openDatabaseConnection();
 
-	$sql = "UPDATE client SET name=:name WHERE id=:id";
+	$sql = "UPDATE species SET species=:species WHERE id=:id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':name' => $name,
+		':species' => $species,
 		':id' => $id
 		));
 
@@ -46,11 +45,11 @@ function editClient($id, $name)
 
 }
 
-function deleteClient($id) 
+function deleteSpecies($id) 
 {
 	$db = openDatabaseConnection();
 
-	$sql = "DELETE FROM client WHERE id=:id ";
+	$sql = "DELETE FROM species WHERE id=:id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id
@@ -59,14 +58,14 @@ function deleteClient($id)
 	$db = null;
 }
 
-function createClient($name) 
+function createSpecies($species) 
 {
 	$db = openDatabaseConnection();
 
-	$sql = "INSERT INTO client(name) VALUES (:name)";
+	$sql = "INSERT INTO species(species) VALUES (:species)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':name' => $name,
+		':species' => $species,
 	));
 
 	$db = null;
