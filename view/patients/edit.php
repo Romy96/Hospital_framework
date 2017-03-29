@@ -3,7 +3,7 @@
 	<?php
 	if(isset($patient)):
 	?>
-		<form method="post" action="<?= URL ?>patients/editSave">
+		<form method="post" action="<?= URL ?>patients/editSave/<?=$patient['id']?>">
 			<div>
 				<input type="hidden" name="id" value="<?=$patient['id']?>">
 				<label for="name_pet">Name pet:</label>

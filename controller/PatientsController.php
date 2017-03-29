@@ -28,7 +28,7 @@ function createSave()
 	header("Location:" . URL . "patients/index");
 }
 
-function edit($id = '')
+function edit($id)
 {
 	$patient = getPatient($id);
 
@@ -36,9 +36,9 @@ function edit($id = '')
 		echo ('Geen resultaat');
 	}
 
-	elseif (isset($id)) {
+	if (isset($id)) {
 		render("patients/edit", array(
-			$patient
+			'patient' => $patient
 		));
 	}
 	else 
@@ -52,13 +52,37 @@ function edit($id = '')
 function editSave($id)
 {
 	if (isset($_POST['name_pet']) && isset($_POST['name_client']) && isset($_POST['gender']) && isset($_POST['species']) && isset($_POST['status'])) {
-		editPatient($_POST['name_pet'], $_POST['name_client'], $_POST['gender'], $_POST['species'], $_POST['status']);
+		editPatient($id, $_POST['name_pet'], $_POST['name_client'], $_POST['gender'], $_POST['species'], $_POST['status']);
+	}
+	else {
+		echo 'Geen resultaat';
 	}
 
 	header("Location:" . URL . "patients/index");
 } 
 
 function delete($id)
+{
+	$patient = getPatient($id);
+
+	if(empty($patient)) {
+		echo ('Geen resultaat');
+	}
+
+	if (isset($id)) {
+		render("patients/delete", array(
+			'patient' => $patient
+		));
+	}
+	else 
+	{
+		render("patients/index", array(
+			'patients' => getAllPatients()
+		));
+	}
+}
+
+function deleteRow($id)
 {
 	if (isset($id)) {
 		deletePatient($id);
