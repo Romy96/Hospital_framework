@@ -2,6 +2,7 @@
 
 function getClient($id) 
 {
+	//Pakt een rij van patients uit de database door de id te pakken
 	$db = openDatabaseConnection();
 
 	$sql = "SELECT * FROM client WHERE id=:id";
@@ -19,6 +20,7 @@ function getClient($id)
 
 function getAllClients() 
 {
+	//Pakt alle rijen van Client
 	$db = openDatabaseConnection();
 
 	$sql = "SELECT * FROM client";
@@ -33,6 +35,7 @@ function getAllClients()
 
 function editClient($id, $name) 
 {
+	//Bewerkt de client als alles op orde loopt.
 	$db = openDatabaseConnection();
 
 	$sql = "UPDATE client SET name=:name WHERE id=:id";
@@ -48,6 +51,7 @@ function editClient($id, $name)
 
 function deleteClient($id) 
 {
+	// verwijderd een client uit de database
 	$db = openDatabaseConnection();
 
 	$sql = "DELETE FROM client WHERE id=:id ";
@@ -61,6 +65,7 @@ function deleteClient($id)
 
 function createClient($name) 
 {
+	// Maakt een client aan
 	$db = openDatabaseConnection();
 
 	$sql = "INSERT INTO client(name) VALUES (:name)";
