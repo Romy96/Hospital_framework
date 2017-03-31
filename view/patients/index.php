@@ -6,9 +6,9 @@
 	<table>
 		<thead>
 			<tr>
-				<th><a href="/Hospital_framework/patients/index">Name pet</a></th>
-				<th><a href="/Hospital_framework/patients/index">Name client</a></th>
-				<th><a href="/Hospital_framework/patients/index">Species</a></th>
+				<th>Name pet</th>
+				<th>Name client</th>
+				<th>Species</th>
 				<th>Gender pet</th>
 				<th>Status</th>
 				<th></th>

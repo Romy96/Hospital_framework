@@ -30,7 +30,19 @@ a {
 	color : black;
 	float: left;
 	display: block;
+	font-style: italic;
+	font-family: Verdana;
 }
+
+a:visited {
+	color: hotpink;
+}
+
+a:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
 p.options{
 	float : left;
 }
@@ -41,11 +53,6 @@ label {
 }
 form div {
 	margin: 5px 0;
-}
-
-table {
-	float: left;
-	display: block;
 }
 
 div {
