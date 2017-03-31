@@ -28,9 +28,11 @@ td.center{
 
 a {
 	color : black;
+	float: left;
+	display: block;
 }
 p.options{
-	text-align : right;
+	float : left;
 }
 
 label {
@@ -39,4 +41,15 @@ label {
 }
 form div {
 	margin: 5px 0;
+}
+
+table {
+	float: left;
+	display: block;
+}
+
+div {
+	width: 100%;
+	display: block;
+	float: left;
 }

@@ -1,12 +1,14 @@
 <div class="container">
 	<h1>Patiënts</h1>
-	<p class="options"><a href="/Hospital_framework/patients/create">create</a></p>
+	<div>
+		<p class="options"><a href="/Hospital_framework/patients/create">create</a></p>
+	</div>
 	<table>
 		<thead>
 			<tr>
-				<th><a href="/Hospital_framework/patients/index/?sort=name_pet&order=<?=$order?>">Name pet</a></th>
-				<th><a href="/Hospital_framework/patients/index/?sort=name_client&order=<?=$order?>">Name client</a></th>
-				<th><a href="/Hospital_framework/patients/index/?sort=species&order=<?=$order?>">Species</a></th>
+				<th><a href="/Hospital_framework/patients/index">Name pet</a></th>
+				<th><a href="/Hospital_framework/patients/index">Name client</a></th>
+				<th><a href="/Hospital_framework/patients/index">Species</a></th>
 				<th>Gender pet</th>
 				<th>Status</th>
 				<th></th>

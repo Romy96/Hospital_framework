@@ -1,6 +1,8 @@
 	<h1>Species</h1>
 	<div class="container">
-		<p class="options"><a href="/Hospital_framework/species/create">create</a></p>
+		<div>
+			<p class="options"><a href="/Hospital_framework/species/create">create</a></p>
+		</div>
 		<table>
 			<thead>
 				<tr>

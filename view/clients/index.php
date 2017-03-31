@@ -1,6 +1,8 @@
 	<h1>Clients</h1>
 	<div class="container">
-		<p class="options"><a href="/Hospital_framework/clients/create">create</a></p>
+		<div>
+			<p class="options"><a href="/Hospital_framework/clients/create">create</a></p>
+		</div>
 		<table>
 			<thead>
 				<tr>
